@@ -1,0 +1,120 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Alexander <alexander.neitzel@codineerdigital.com>
+Date: Mon, 6 Dec 2021 20:14:34 +0100
+Subject: [PATCH] WorldLoader command fixes
+
+
+diff --git a/src/main/java/net/bluebolt/commands/WorldCommand.java b/src/main/java/net/bluebolt/commands/WorldCommand.java
+index 4358179009ec842689677989bed3d65ac77a6bc8..4ef65b16144abb7899f7391194ba6da545c4d37d 100644
+--- a/src/main/java/net/bluebolt/commands/WorldCommand.java
++++ b/src/main/java/net/bluebolt/commands/WorldCommand.java
+@@ -47,86 +47,86 @@ public class WorldCommand extends Command {
+                     return true;
+                 }
+                 if (Bukkit.getWorlds().stream().anyMatch(world -> world.getName().equals(args[1]))) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY +
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY +
+                         " cannot be loaded. The world seems to be already loaded.");
+                     return true;
+                 }
+-                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Loading world " + ChatColor.GOLD + args[0]);
++                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Loading world " + ChatColor.GOLD + args[1]);
+                 try {
+-                    new WorldCreator(args[0]).createWorld();
++                    new WorldCreator(args[1]).createWorld();
+                 } catch (Exception e) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.RED + "Failed to load world " + args[0]);
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.RED + "Failed to load world " + args[1]);
+                     return true;
+                 }
+-                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GREEN + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY + " has been loaded");
++                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GREEN + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY + " has been loaded");
+                 return true;
+             }
+             case "unload" -> {
+                 if (args.length != 2) return false;
+                 if (args[1].endsWith("_nether") || args[1].endsWith("_the_end")) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY +
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY +
+                         " cannot be unloaded. The world seems to be a dimension of the world " + ChatColor.GOLD + args[1].replace("_nether", "").replace("_the_end", ""));
+                     return true;
+                 }
+                 if (Bukkit.getWorlds().stream().noneMatch(world -> world.getName().equals(args[1]))) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY +
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY +
+                         " cannot be loaded. The world is not loaded.");
+                     return true;
+                 }
+-                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Unloading world " + ChatColor.GOLD + args[0]);
++                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Unloading world " + ChatColor.GOLD + args[1]);
+                 try {
+-                    Bukkit.unloadWorld(args[0], true);
++                    Bukkit.unloadWorld(args[1], true);
+                 } catch (Exception e) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.RED + "Failed to unload world " + args[0]);
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.RED + "Failed to unload world " + args[1]);
+                     return true;
+                 }
+-                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GREEN + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY + " has been unloaded");
++                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GREEN + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY + " has been unloaded");
+                 return true;
+             }
+             case "generate" -> {
+                 if (!(args.length == 2 || args.length == 3)) return false;
+                 if (args[1].endsWith("_nether") || args[1].endsWith("_the_end")) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY +
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY +
+                         " cannot be generated. The world generator cannot generate a dimension of the world " + ChatColor.GOLD + args[1].replace("_nether", "").replace("_the_end", ""));
+                     return true;
+                 }
+                 if (Bukkit.getWorlds().stream().anyMatch(world -> world.getName().equals(args[1]))) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY +
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY +
+                         " cannot be generated. The world is already existing and loaded. If you want to override the world, unload first.");
+                     return true;
+                 }
+-                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Generating world " + ChatColor.GOLD + args[0]);
++                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Generating world " + ChatColor.GOLD + args[1]);
+                 try {
+-                    WorldCreator worldCreator = new WorldCreator(args[0]);
++                    WorldCreator worldCreator = new WorldCreator(args[1]);
+                     if (args.length == 2) {
+-                        worldCreator = worldCreator.seed(Long.parseLong(args[1]));
++                        worldCreator = worldCreator.seed(Long.parseLong(args[2]));
+                     }
+                     Bukkit.getServer().createWorld(worldCreator);
+                 } catch (Exception e) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.RED + "Failed to generate world " + args[0]);
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.RED + "Failed to generate world " + args[1]);
+                     return true;
+                 }
+-                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GREEN + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY + " has been generated");
++                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GREEN + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY + " has been generated");
+                 return true;
+             }
+             case "enter" -> {
+                 if (args.length != 2) return false;
+                 if (Bukkit.getWorlds().stream().noneMatch(world -> world.getName().equals(args[1]))) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY +
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY +
+                         " cannot be entered. The world is not loaded. If you want to enter the world, load first.");
+                     return true;
+                 }
+-                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Entering world " + ChatColor.GOLD + args[0]);
++                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Entering world " + ChatColor.GOLD + args[1]);
+                 try {
+                     Player player = (Player) sender;
+-                    World world = Bukkit.getWorld(args[0]);
++                    World world = Bukkit.getWorld(args[1]);
+                     assert world != null;
+                     player.teleport(new Location(world, world.getSpawnLocation().getX(), world.getSpawnLocation().getY(), world.getSpawnLocation().getZ()));
+                 } catch (Exception e) {
+-                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.RED + "Failed to enter world " + args[0]);
++                    sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.RED + "Failed to enter world " + args[1]);
+                     return true;
+                 }
+-                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GREEN + "World " + ChatColor.GOLD + args[0] + ChatColor.GRAY + " has been entered");
++                sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GREEN + "World " + ChatColor.GOLD + args[1] + ChatColor.GRAY + " has been entered");
+                 return true;
+             }
+             case "list" -> {
