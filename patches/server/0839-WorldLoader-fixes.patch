@@ -1,0 +1,40 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Alexander <alexander.neitzel@codineerdigital.com>
+Date: Mon, 6 Dec 2021 19:49:31 +0100
+Subject: [PATCH] WorldLoader fixes
+
+
+diff --git a/src/main/java/net/bluebolt/commands/WorldCommand.java b/src/main/java/net/bluebolt/commands/WorldCommand.java
+index 5cce83cd4459456f6a21197f82ff76e99bf76fe2..5f6896392465ee56141ff44460576625fb863fc3 100644
+--- a/src/main/java/net/bluebolt/commands/WorldCommand.java
++++ b/src/main/java/net/bluebolt/commands/WorldCommand.java
+@@ -27,11 +27,7 @@ public class WorldCommand extends Command {
+     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
+         if (!testPermission(sender)) return true;
+         if (!executeCommand(sender, commandLabel, args)) {
+-            sender.sendMessage(Component.text("⚡ Blue Bolt ", NamedTextColor.BLUE)
+-                .append(Component.text("» ", NamedTextColor.DARK_GRAY)
+-                .append(Component.text("Use ", NamedTextColor.GRAY)
+-                .append(Component.text("/world help", NamedTextColor.GOLD).decorate(TextDecoration.ITALIC).clickEvent(ClickEvent.runCommand("/world help"))
+-                .append(Component.text(" for help", NamedTextColor.GRAY))))));
++            sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Use " + ChatColor.GOLD + ChatColor.ITALIC + "/world help" + ChatColor.GRAY + " for help");
+         }
+         return true;
+     }
+@@ -121,6 +117,7 @@ public class WorldCommand extends Command {
+                 try {
+                     Player player = (Player) sender;
+                     World world = Bukkit.getWorld(args[0]);
++                    assert world != null;
+                     player.teleport(new Location(world, world.getSpawnLocation().getX(), world.getSpawnLocation().getY(), world.getSpawnLocation().getZ()));
+                 } catch (Exception e) {
+                     sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.RED + "Failed to enter world " + args[0]);
+@@ -136,7 +133,7 @@ public class WorldCommand extends Command {
+                 sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Loaded worlds: ");
+                 for (World world : Bukkit.getWorlds()) {
+                     TextComponent component = new TextComponent(ChatColor.BLUE + "⚡ " + ChatColor.GRAY + world.getName());
+-                    component.setClickEvent(new net.md_5.bungee.api.chat.ClickEvent(net.md_5.bungee.api.chat.ClickEvent.Action.RUN_COMMAND, "/enterworld " + world.getName()));
++                    component.setClickEvent(new net.md_5.bungee.api.chat.ClickEvent(net.md_5.bungee.api.chat.ClickEvent.Action.RUN_COMMAND, "/world enter " + world.getName()));
+                     component.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("Click to enter").create()));
+                     sender.sendMessage(component);
+                 }
