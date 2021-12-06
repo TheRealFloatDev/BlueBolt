@@ -645,7 +645,7 @@ index b193f8dfbe7b61c919ad5eb452d29885982e25e4..01b9edc8aaf472650f171f1b88229807
  
      // Yes, this doesn't match Vanilla, but it's the best we can do for now.
 diff --git a/src/main/java/net/minecraft/world/level/NaturalSpawner.java b/src/main/java/net/minecraft/world/level/NaturalSpawner.java
-index 6f63f471c2c9a3b85c6fc92bdee31a5ff9714ff5..c88bd5bc044b5f9722cb5826936e31811a8312c7 100644
+index 63deac19b4006c5d64596cd30e6641caaabc7c1d..63ba93538d990fdd4c9e8c491bb715adc8d57986 100644
 --- a/src/main/java/net/minecraft/world/level/NaturalSpawner.java
 +++ b/src/main/java/net/minecraft/world/level/NaturalSpawner.java
 @@ -65,7 +65,13 @@ public final class NaturalSpawner {
@@ -740,7 +740,7 @@ index 6f63f471c2c9a3b85c6fc92bdee31a5ff9714ff5..c88bd5bc044b5f9722cb5826936e3181
          StructureFeatureManager structuremanager = world.structureFeatureManager();
          ChunkGenerator chunkgenerator = world.getChunkSource().getGenerator();
          int i = pos.getY();
-         BlockState iblockdata = world.getBlockStateIfLoadedAndInBounds(pos); // Paper - don't load chunks for mob spawn
+         BlockState iblockdata = world.getTypeIfLoadedAndInBounds(pos); // Paper - don't load chunks for mob spawn
 +        int j = 0; // Paper - moved up
  
          if (iblockdata != null && !iblockdata.isRedstoneConductor(chunk, pos)) { // Paper - don't load chunks for mob spawn

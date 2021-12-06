@@ -960,7 +960,7 @@ index 25b787d1b22e495fb6756e4ee909776ed8699492..042be2cf60a9d01698808d84f2e537a5
          }
          // CraftBukkit start
 diff --git a/src/main/java/net/minecraft/world/entity/Entity.java b/src/main/java/net/minecraft/world/entity/Entity.java
-index 516015eb48900abaf0e2f47de4ffd10e9cf4d9a7..821c34a48127802947e293c4599e0cdaea3c040e 100644
+index 516015eb48900abaf0e2f47de4ffd10e9cf4d9a7..1dd646bb8d1c153a3d034de1c208b3bacebd067f 100644
 --- a/src/main/java/net/minecraft/world/entity/Entity.java
 +++ b/src/main/java/net/minecraft/world/entity/Entity.java
 @@ -1076,9 +1076,44 @@ public abstract class Entity implements Nameable, EntityAccess, CommandSource, i
@@ -997,7 +997,7 @@ index 516015eb48900abaf0e2f47de4ffd10e9cf4d9a7..821c34a48127802947e293c4599e0cda
 +                                    continue;
 +                                }
 +
-+                                BlockState type = chunk.getBlockStateFinal(fx, fy, fz);
++                                BlockState type = chunk.getType(fx, fy, fz);
 +                                if (type.is((Tag) BlockTags.FIRE) || type.is(Blocks.LAVA)) {
 +                                    noneMatch = false;
 +                                    // can't break, we need to retain vanilla behavior by ensuring ALL chunks are loaded
