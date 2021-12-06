@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Alexander <alexander.neitzel@codineerdigital.com>
+Date: Mon, 6 Dec 2021 19:52:17 +0100
+Subject: [PATCH] WorldLoader fixes2
+
+
+diff --git a/src/main/java/net/bluebolt/commands/WorldCommand.java b/src/main/java/net/bluebolt/commands/WorldCommand.java
+index 5f6896392465ee56141ff44460576625fb863fc3..4358179009ec842689677989bed3d65ac77a6bc8 100644
+--- a/src/main/java/net/bluebolt/commands/WorldCommand.java
++++ b/src/main/java/net/bluebolt/commands/WorldCommand.java
+@@ -26,9 +26,12 @@ public class WorldCommand extends Command {
+     @Override
+     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
+         if (!testPermission(sender)) return true;
+-        if (!executeCommand(sender, commandLabel, args)) {
+-            sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Use " + ChatColor.GOLD + ChatColor.ITALIC + "/world help" + ChatColor.GRAY + " for help");
++        if (args.length >= 1) {
++            if (executeCommand(sender, commandLabel, args)) {
++                return true;
++            }
+         }
++        sender.sendMessage(ChatColor.BLUE + "⚡ Blue Bolt " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Use " + ChatColor.GOLD + ChatColor.ITALIC + "/world help" + ChatColor.GRAY + " for help");
+         return true;
+     }
+ 
