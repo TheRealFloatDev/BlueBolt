@@ -1,0 +1,93 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Alexander <alexander.neitzel@codineerdigital.com>
+Date: Wed, 8 Dec 2021 18:21:21 +0100
+Subject: [PATCH] Implemented new LinkedCommand system
+
+
+diff --git a/src/main/java/org/spigotmc/RestartCommand.java b/src/main/java/org/spigotmc/RestartCommand.java
+index 160115bf8a153ff981ba308599d22c4c08026fb6..3af6244687abb2d34df46da63255fc30b0a6c90c 100644
+--- a/src/main/java/org/spigotmc/RestartCommand.java
++++ b/src/main/java/org/spigotmc/RestartCommand.java
+@@ -2,11 +2,14 @@ package org.spigotmc;
+ 
+ import java.io.File;
+ import java.util.List;
++
++import net.bluebolt.annotations.LinkedCommand;
+ import net.minecraft.server.MinecraftServer;
+ import net.minecraft.server.level.ServerPlayer;
+ import org.bukkit.command.Command;
+ import org.bukkit.command.CommandSender;
+ 
++@LinkedCommand(command = "restart")
+ public class RestartCommand extends Command
+ {
+ 
+diff --git a/src/main/java/org/spigotmc/SpigotCommand.java b/src/main/java/org/spigotmc/SpigotCommand.java
+index 3112a8695639c402e9d18710acbc11cff5611e9c..1bf445519d34fccdb7c1d3d41c1d975de62ae27d 100644
+--- a/src/main/java/org/spigotmc/SpigotCommand.java
++++ b/src/main/java/org/spigotmc/SpigotCommand.java
+@@ -1,12 +1,15 @@
+ package org.spigotmc;
+ 
+ import java.io.File;
++
++import net.bluebolt.annotations.LinkedCommand;
+ import net.minecraft.server.MinecraftServer;
+ import net.minecraft.server.level.ServerLevel;
+ import org.bukkit.ChatColor;
+ import org.bukkit.command.Command;
+ import org.bukkit.command.CommandSender;
+ 
++@LinkedCommand(command = "spigot")
+ public class SpigotCommand extends Command {
+ 
+     public SpigotCommand(String name) {
+diff --git a/src/main/java/org/spigotmc/SpigotConfig.java b/src/main/java/org/spigotmc/SpigotConfig.java
+index 00b9afbf6dd915c7138f38013320b4e6d2b15a60..65ff325770bb95061739832358dd883fe3d07b1f 100644
+--- a/src/main/java/org/spigotmc/SpigotConfig.java
++++ b/src/main/java/org/spigotmc/SpigotConfig.java
+@@ -73,7 +73,7 @@ public class SpigotConfig
+         SpigotConfig.config.options().copyDefaults( true );
+ 
+         SpigotConfig.commands = new HashMap<String, Command>();
+-        SpigotConfig.commands.put( "spigot", new SpigotCommand( "spigot" ) );
++        //SpigotConfig.commands.put( "spigot", new SpigotCommand( "spigot" ) );
+         // BlueBolt start - add commands
+         Reflections reflections = new Reflections();
+         Set<Class<?>> annotated = reflections.getTypesAnnotatedWith(LinkedCommand.class);
+@@ -247,7 +247,7 @@ public class SpigotConfig
+         SpigotConfig.restartOnCrash = SpigotConfig.getBoolean( "settings.restart-on-crash", SpigotConfig.restartOnCrash );
+         SpigotConfig.restartScript = SpigotConfig.getString( "settings.restart-script", SpigotConfig.restartScript );
+         SpigotConfig.restartMessage = SpigotConfig.transform( SpigotConfig.getString( "messages.restart", "Server is restarting" ) );
+-        SpigotConfig.commands.put( "restart", new RestartCommand( "restart" ) );
++        //SpigotConfig.commands.put( "restart", new RestartCommand( "restart" ) );
+         //WatchdogThread.doStart( timeoutTime, restartOnCrash ); // Paper - moved to PaperConfig
+     }
+ 
+@@ -302,7 +302,7 @@ public class SpigotConfig
+ 
+     private static void tpsCommand()
+     {
+-        SpigotConfig.commands.put( "tps", new TicksPerSecondCommand( "tps" ) );
++        //SpigotConfig.commands.put( "tps", new TicksPerSecondCommand( "tps" ) );
+     }
+ 
+     public static int playerSample;
+diff --git a/src/main/java/org/spigotmc/TicksPerSecondCommand.java b/src/main/java/org/spigotmc/TicksPerSecondCommand.java
+index 570f02306de817ad31e685654c41e3dd06747199..82cd3d622919462b7f0a169ad9929cbdd32146b3 100644
+--- a/src/main/java/org/spigotmc/TicksPerSecondCommand.java
++++ b/src/main/java/org/spigotmc/TicksPerSecondCommand.java
+@@ -1,10 +1,12 @@
+ package org.spigotmc;
+ 
++import net.bluebolt.annotations.LinkedCommand;
+ import net.minecraft.server.MinecraftServer;
+ import org.bukkit.ChatColor;
+ import org.bukkit.command.Command;
+ import org.bukkit.command.CommandSender;
+ 
++@LinkedCommand(command = "tps")
+ public class TicksPerSecondCommand extends Command
+ {
+ 
