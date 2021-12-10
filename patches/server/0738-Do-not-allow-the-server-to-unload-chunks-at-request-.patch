@@ -10,7 +10,7 @@ to be unloaded will simply be unloaded next tick, rather than
 immediately.
 
 diff --git a/src/main/java/net/minecraft/server/level/ServerChunkCache.java b/src/main/java/net/minecraft/server/level/ServerChunkCache.java
-index f7abb67568cf1034dae3fe9e0adff9bcc36b96e7..2099769f54b53129f350856a227db4c475b4c903 100644
+index 761bd290d5a041d56ce6be98443107b8f87137aa..ef6e4dddc699c05a5f3d4b2dc29db0d1fa79b0ef 100644
 --- a/src/main/java/net/minecraft/server/level/ServerChunkCache.java
 +++ b/src/main/java/net/minecraft/server/level/ServerChunkCache.java
 @@ -884,6 +884,7 @@ public class ServerChunkCache extends ChunkSource {

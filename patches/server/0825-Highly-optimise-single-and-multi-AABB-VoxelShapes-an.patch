@@ -1130,7 +1130,7 @@ index 516015eb48900abaf0e2f47de4ffd10e9cf4d9a7..1dd646bb8d1c153a3d034de1c208b3ba
      }
  
 diff --git a/src/main/java/net/minecraft/world/level/BlockCollisions.java b/src/main/java/net/minecraft/world/level/BlockCollisions.java
-index d40bbc5ae6b87028a6dde400ea714249792da79a..ca84778200050e0ef7dfeabcaa2e346a6e9cbe12 100644
+index a733c91700a38634806e9155c693b227e6aa16b6..120e1778f2bdd64ca19ee21dc5c5f2f382895470 100644
 --- a/src/main/java/net/minecraft/world/level/BlockCollisions.java
 +++ b/src/main/java/net/minecraft/world/level/BlockCollisions.java
 @@ -106,7 +106,7 @@ public class BlockCollisions extends AbstractIterator<VoxelShape> {

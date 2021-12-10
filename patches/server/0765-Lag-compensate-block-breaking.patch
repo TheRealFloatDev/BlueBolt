@@ -21,7 +21,7 @@ index aafb87e80ff2cbc7f46fc102dd5b1d828206ecc8..f34ae86812b13a96b509724591a75c1a
 +    }
  }
 diff --git a/src/main/java/net/minecraft/server/level/ServerPlayerGameMode.java b/src/main/java/net/minecraft/server/level/ServerPlayerGameMode.java
-index 92f5cb240e0cf52caa8e95302606baa79a0da0f9..dd92cc53f0e6247508c6ce494dd45b4829344b2a 100644
+index 1ca6dc1e9334bf7e03eab4c2a75f4c86c7d36a9f..3125af569ec2bb1cd613a9dd96c3a181d723006d 100644
 --- a/src/main/java/net/minecraft/server/level/ServerPlayerGameMode.java
 +++ b/src/main/java/net/minecraft/server/level/ServerPlayerGameMode.java
 @@ -54,14 +54,28 @@ public class ServerPlayerGameMode {

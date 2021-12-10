@@ -5,7 +5,7 @@ Subject: [PATCH] Add isCollidable methods to various places
 
 
 diff --git a/src/main/java/org/bukkit/craftbukkit/block/CraftBlock.java b/src/main/java/org/bukkit/craftbukkit/block/CraftBlock.java
-index ee24edb7f3821ae3a1881824257d21226f909adb..808bdd0e8d6b679c2eee87c3078a4c3dbcd08b8b 100644
+index 4a013a0ecdeda29c64748a551f79b8437021978c..fcf2e5b0b07d2884b678b9c39b72cc7dc5518163 100644
 --- a/src/main/java/org/bukkit/craftbukkit/block/CraftBlock.java
 +++ b/src/main/java/org/bukkit/craftbukkit/block/CraftBlock.java
 @@ -473,6 +473,11 @@ public class CraftBlock implements Block {
@@ -37,7 +37,7 @@ index 7b9e943b391c061782fccd2b8d705ceec8db50fe..966ac60daebb7bb211ab8096fc0c5f33
 +    // Paper end
  }
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
-index 2a8d1dc9d985250fd38e32f12e096bb8c31e43b7..52f5dfb2179a6cf35dfe38bac211ac6d8166e636 100644
+index 08b44f0f5e018ac5ecc42906a0c126061ed52268..ac9bfb29009d9969c7444678fb1478752f15bfac 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/CraftMagicNumbers.java
 @@ -528,6 +528,12 @@ public final class CraftMagicNumbers implements UnsafeValues {

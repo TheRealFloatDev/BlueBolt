@@ -22,12 +22,12 @@ With this change I could get all 200 on at 0ms ping.
 So in general this patch should reduce Netty I/O thread load.
 
 diff --git a/src/main/java/net/minecraft/server/level/ServerChunkCache.java b/src/main/java/net/minecraft/server/level/ServerChunkCache.java
-index 3e3819222796dc6910e8605783e39d8be490de80..51c4ca36221e9af074fa92f6ab94fa7ba5403080 100644
+index 69de466c627f91cb4ee67c1015ead2502f3f7500..e7e110b53e79e0606262982555dd9eb096c7c4a8 100644
 --- a/src/main/java/net/minecraft/server/level/ServerChunkCache.java
 +++ b/src/main/java/net/minecraft/server/level/ServerChunkCache.java
-@@ -1053,7 +1053,24 @@ public class ServerChunkCache extends ChunkSource {
-             });
-             gameprofilerfiller.pop();
+@@ -1070,7 +1070,24 @@ public class ServerChunkCache extends ChunkSource {
+ 
+             //  Paper - no, iterating just ONCE is expensive enough! Don't do it TWICE! Code moved up
              gameprofilerfiller.pop();
 +            // Paper start - controlled flush for entity tracker packets
 +            List<net.minecraft.network.Connection> disabledFlushes = new java.util.ArrayList<>(this.level.players.size());

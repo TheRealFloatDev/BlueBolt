@@ -46,7 +46,7 @@ index c7d23fcaa5702f0e8bbf616c86b16ab1b3400dbb..28256f1f0aeb7718a5866add4ec40ce0
                  if (!iblockdata1.is((Tag) BlockTags.FIRE)) {
                      world.addDestroyBlockEffect(blockposition3, iblockdata1);
 diff --git a/src/main/java/net/minecraft/world/level/material/FlowingFluid.java b/src/main/java/net/minecraft/world/level/material/FlowingFluid.java
-index 18e24f400289fdfca0bf33ea0f93badeef3e46eb..1aab936f9f57bd2dda4444d6bd36e064809e5915 100644
+index 49b8e9a764a868975ec832ea354bb0df99f9721a..6f5f9d8a38bf023969c883b3e3a230c3cdc62104 100644
 --- a/src/main/java/net/minecraft/world/level/material/FlowingFluid.java
 +++ b/src/main/java/net/minecraft/world/level/material/FlowingFluid.java
 @@ -295,7 +295,7 @@ public abstract class FlowingFluid extends Fluid {

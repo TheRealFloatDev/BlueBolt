@@ -5,7 +5,7 @@ Subject: [PATCH] Prevent unload() calls removing tickets for sync loads
 
 
 diff --git a/src/main/java/net/minecraft/server/level/ServerChunkCache.java b/src/main/java/net/minecraft/server/level/ServerChunkCache.java
-index e13a8e3dc11292aed13ff12ee8e0f9d6a95f0c34..9f0321179fb1d87b6e1b74e128955157983b0500 100644
+index 74836552406743c16ef9e510ad22f7ba5520ea7f..280ca8758cbaf710c2bf357e41dd2af6e14b49bc 100644
 --- a/src/main/java/net/minecraft/server/level/ServerChunkCache.java
 +++ b/src/main/java/net/minecraft/server/level/ServerChunkCache.java
 @@ -725,6 +725,8 @@ public class ServerChunkCache extends ChunkSource {

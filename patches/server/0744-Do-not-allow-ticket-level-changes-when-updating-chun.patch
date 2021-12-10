@@ -8,7 +8,7 @@ This WILL cause state corruption if it happens. So, don't
 allow it.
 
 diff --git a/src/main/java/net/minecraft/server/level/ChunkHolder.java b/src/main/java/net/minecraft/server/level/ChunkHolder.java
-index 634de60385923b3482f8a52138694b5c635c23b8..bb411853cb9e0120bcaa82e878724ee17167057b 100644
+index 6bfc705cbf3d8efdb0926df4e1bc6948f9052440..1f602d50f3212078490c0092ceefd3b17e0b1532 100644
 --- a/src/main/java/net/minecraft/server/level/ChunkHolder.java
 +++ b/src/main/java/net/minecraft/server/level/ChunkHolder.java
 @@ -418,7 +418,13 @@ public class ChunkHolder {

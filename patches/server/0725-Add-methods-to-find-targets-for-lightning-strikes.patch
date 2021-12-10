@@ -5,7 +5,7 @@ Subject: [PATCH] Add methods to find targets for lightning strikes
 
 
 diff --git a/src/main/java/net/minecraft/server/level/ServerLevel.java b/src/main/java/net/minecraft/server/level/ServerLevel.java
-index 081c031f08c9817de6c4e1e6bf18b11efc3c668b..c2800bbcf4892ca4e8fdc22e9bf794aa5a60c0fc 100644
+index 1d372935aeab82d7d6540b8fd7590466a0dc5763..ae0f2bd13adf1d8a56e4a2a26aa5d8cc75e7aaae 100644
 --- a/src/main/java/net/minecraft/server/level/ServerLevel.java
 +++ b/src/main/java/net/minecraft/server/level/ServerLevel.java
 @@ -748,6 +748,11 @@ public class ServerLevel extends Level implements WorldGenLevel {

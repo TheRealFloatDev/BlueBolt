@@ -9,7 +9,7 @@ since the penalty of a map lookup could outweigh the benefits of
 searching less players (as it basically did in the outside range patch).
 
 diff --git a/src/main/java/net/minecraft/server/level/ChunkHolder.java b/src/main/java/net/minecraft/server/level/ChunkHolder.java
-index bb411853cb9e0120bcaa82e878724ee17167057b..7f663523b8c43b356763d6d5249e1aec416de37c 100644
+index 1f602d50f3212078490c0092ceefd3b17e0b1532..825fdb0336b0388dbbc54c8da99781900612031c 100644
 --- a/src/main/java/net/minecraft/server/level/ChunkHolder.java
 +++ b/src/main/java/net/minecraft/server/level/ChunkHolder.java
 @@ -83,6 +83,12 @@ public class ChunkHolder {
@@ -92,7 +92,7 @@ index 9ab37d95b0dbd13dfe31b34b2a91c2a7bc7f6e64..27e9bd7dabb5f827b8baf126565d1efb
  
      protected ChunkGenerator generator() {
 diff --git a/src/main/java/net/minecraft/server/level/ServerLevel.java b/src/main/java/net/minecraft/server/level/ServerLevel.java
-index 17b01c1592ec2481d1ff444ff12dbc3790e09368..3ce8055f0fb8c5b605356e4e85ee1dbdcc73ba0e 100644
+index e6a8e21aa0ef8846b9998fe40605bf98c3966888..f166a4cf5e71f3b3eb961ab729ce59991a06ce7c 100644
 --- a/src/main/java/net/minecraft/server/level/ServerLevel.java
 +++ b/src/main/java/net/minecraft/server/level/ServerLevel.java
 @@ -396,6 +396,83 @@ public class ServerLevel extends Level implements WorldGenLevel {
@@ -195,7 +195,7 @@ index 17b01c1592ec2481d1ff444ff12dbc3790e09368..3ce8055f0fb8c5b605356e4e85ee1dbd
  
          this.handlingTick = true;
 diff --git a/src/main/java/net/minecraft/world/entity/Mob.java b/src/main/java/net/minecraft/world/entity/Mob.java
-index 697c2663c4deeb8f2ad603c979ab0884ac027930..0b46066d35d9bb38d98a9d6e5ca8dbdc0ba1dc5a 100644
+index 0a559b658cd52a1cce2895c6d9f96aa665a85c7b..8200e33ed4ebcae8a27cccf2a28daba5e10cf75d 100644
 --- a/src/main/java/net/minecraft/world/entity/Mob.java
 +++ b/src/main/java/net/minecraft/world/entity/Mob.java
 @@ -792,7 +792,12 @@ public abstract class Mob extends LivingEntity {
@@ -213,7 +213,7 @@ index 697c2663c4deeb8f2ad603c979ab0884ac027930..0b46066d35d9bb38d98a9d6e5ca8dbdc
              if (entityhuman != null) {
                  double d0 = entityhuman.distanceToSqr((Entity) this);
 diff --git a/src/main/java/net/minecraft/world/level/Level.java b/src/main/java/net/minecraft/world/level/Level.java
-index 02a240a3925008152ea93059db47122e7f1a40d9..c2220d5157d3065a256cd17410760c6aedf24987 100644
+index 103428df78d1efe805ab425f1b4085077239bdf6..4247dcb003626535dbb997f48ad9f61380bd17e9 100644
 --- a/src/main/java/net/minecraft/world/level/Level.java
 +++ b/src/main/java/net/minecraft/world/level/Level.java
 @@ -244,6 +244,69 @@ public abstract class Level implements LevelAccessor, AutoCloseable {
@@ -287,7 +287,7 @@ index 02a240a3925008152ea93059db47122e7f1a40d9..c2220d5157d3065a256cd17410760c6a
      protected Level(WritableLevelData worlddatamutable, ResourceKey<Level> resourcekey, final DimensionType dimensionmanager, Supplier<ProfilerFiller> supplier, boolean flag, boolean flag1, long i, org.bukkit.generator.ChunkGenerator gen, org.bukkit.generator.BiomeProvider biomeProvider, org.bukkit.World.Environment env, java.util.concurrent.Executor executor) { // Paper - Async-Anti-Xray - Pass executor
          this.spigotConfig = new org.spigotmc.SpigotWorldConfig(((net.minecraft.world.level.storage.PrimaryLevelData) worlddatamutable).getLevelName()); // Spigot
 diff --git a/src/main/java/net/minecraft/world/level/NaturalSpawner.java b/src/main/java/net/minecraft/world/level/NaturalSpawner.java
-index 928025438af179711c42381fc3eaeac74cd20c59..c48d0773e7f1af4bc247d777eccc8a42c7e17601 100644
+index 9b13244571807907fc0e14463d746724b0713c19..49a0ceaf9a08f64f84f3925cfba3fab6bb034bae 100644
 --- a/src/main/java/net/minecraft/world/level/NaturalSpawner.java
 +++ b/src/main/java/net/minecraft/world/level/NaturalSpawner.java
 @@ -275,7 +275,7 @@ public final class NaturalSpawner {
@@ -309,7 +309,7 @@ index 928025438af179711c42381fc3eaeac74cd20c59..c48d0773e7f1af4bc247d777eccc8a42
  
      private static Boolean isValidSpawnPostitionForType(ServerLevel world, MobCategory group, StructureFeatureManager structureAccessor, ChunkGenerator chunkGenerator, MobSpawnSettings.SpawnerData spawnEntry, BlockPos.MutableBlockPos pos, double squaredDistance) { // Paper
 diff --git a/src/main/java/net/minecraft/world/level/chunk/LevelChunk.java b/src/main/java/net/minecraft/world/level/chunk/LevelChunk.java
-index e9542a4683e1fef470ae37819d6d7a8c72afe4c8..b39904f011d86f6ced80e4d3fb48c26ccfa7f828 100644
+index 8e03e63a00dd242791ba0d5a8a17922227b16165..4a9a1fef5603b073e6d2d12e3e8e5dca73a7bd1b 100644
 --- a/src/main/java/net/minecraft/world/level/chunk/LevelChunk.java
 +++ b/src/main/java/net/minecraft/world/level/chunk/LevelChunk.java
 @@ -235,6 +235,93 @@ public class LevelChunk extends ChunkAccess {

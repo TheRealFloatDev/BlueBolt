@@ -9,7 +9,7 @@ easy win. The remaining problems with this function
 are mostly with the block getting itself.
 
 diff --git a/src/main/java/net/minecraft/world/level/BlockGetter.java b/src/main/java/net/minecraft/world/level/BlockGetter.java
-index 7ad35b3586ae670602cc63e67d2f01fc5d10b638..ae8800a37ecd117126d976bcce1b91d56e7587b8 100644
+index 9cf2f046d50a8a0e08189c9b4b5d2f323d1f790d..d1eefa6ef3e9abfe7af4d8310aa64465fa2d5463 100644
 --- a/src/main/java/net/minecraft/world/level/BlockGetter.java
 +++ b/src/main/java/net/minecraft/world/level/BlockGetter.java
 @@ -84,6 +84,7 @@ public interface BlockGetter extends LevelHeightAccessor {

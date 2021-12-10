@@ -108,7 +108,7 @@ index 088334869cb62797a1e1d1bbb6187f03189d852d..c245c1f4611f7273c8da629f774e0c64
          } else {
              if (this.haveTime()) {
 diff --git a/src/main/java/net/minecraft/server/level/ServerLevel.java b/src/main/java/net/minecraft/server/level/ServerLevel.java
-index 427deff283b5e47e68966ad6af8823b282b20cf8..5fc77bd9a05d5fad7c49d15fe64ccab14ec37bc3 100644
+index 875ba4b21f122a0d748c7bd5b3d48f4b8ead5693..8eb4320b281ef83fa9387d14f10d140f099e83e4 100644
 --- a/src/main/java/net/minecraft/server/level/ServerLevel.java
 +++ b/src/main/java/net/minecraft/server/level/ServerLevel.java
 @@ -198,7 +198,9 @@ public class ServerLevel extends Level implements WorldGenLevel {
@@ -123,7 +123,7 @@ index 427deff283b5e47e68966ad6af8823b282b20cf8..5fc77bd9a05d5fad7c49d15fe64ccab1
      // CraftBukkit start
      private int tickPosition;
 diff --git a/src/main/java/net/minecraft/world/level/Level.java b/src/main/java/net/minecraft/world/level/Level.java
-index 317f4ea838a2ba654d5bf36b416e67d897a12470..93e607aae3e64b6a04fd56b25748283535ce5aac 100644
+index 3831895e2219d846022500553d9b714c7d654b3a..86bcedec97f1bc95621380da6ad074bdcc4bfeab 100644
 --- a/src/main/java/net/minecraft/world/level/Level.java
 +++ b/src/main/java/net/minecraft/world/level/Level.java
 @@ -896,6 +896,7 @@ public abstract class Level implements LevelAccessor, AutoCloseable {

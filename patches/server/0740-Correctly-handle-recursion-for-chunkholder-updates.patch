@@ -8,7 +8,7 @@ cause a recursive call which would handle the increase but then
 the caller would think the chunk would be unloaded.
 
 diff --git a/src/main/java/net/minecraft/server/level/ChunkHolder.java b/src/main/java/net/minecraft/server/level/ChunkHolder.java
-index 4b0d87c0534cddcab16d772c16307f3621fc30e9..634de60385923b3482f8a52138694b5c635c23b8 100644
+index 17a71e2fce455552c0e8af4073c516c21bc3e208..6bfc705cbf3d8efdb0926df4e1bc6948f9052440 100644
 --- a/src/main/java/net/minecraft/server/level/ChunkHolder.java
 +++ b/src/main/java/net/minecraft/server/level/ChunkHolder.java
 @@ -438,8 +438,10 @@ public class ChunkHolder {

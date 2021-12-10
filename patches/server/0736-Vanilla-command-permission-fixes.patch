@@ -30,7 +30,7 @@ index 899008b2980d13f1be6280cd8cb959c53a29bebf..f875507241ac6769545e91cd3285232b
      private RedirectModifier<S> modifier = null;
      private boolean forks;
 diff --git a/src/main/java/net/minecraft/commands/Commands.java b/src/main/java/net/minecraft/commands/Commands.java
-index 40a0fbc2049aeffef597f867383877cce9ea7a03..edc202d60ac3e8ac13b61d8c2c82d587567e9c05 100644
+index 112dddca796f9d987c321174bf9d6ad98dbb7a5e..f6b73f8c6638ddf79e45042f5c8902ea1f271f5c 100644
 --- a/src/main/java/net/minecraft/commands/Commands.java
 +++ b/src/main/java/net/minecraft/commands/Commands.java
 @@ -211,6 +211,13 @@ public class Commands {

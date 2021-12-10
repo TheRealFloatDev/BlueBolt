@@ -9,7 +9,7 @@ chunk through it. This should also be OK from a leak prevention/
 state desync POV because the TE is getting unloaded anyways.
 
 diff --git a/src/main/java/net/minecraft/server/level/ServerLevel.java b/src/main/java/net/minecraft/server/level/ServerLevel.java
-index c2800bbcf4892ca4e8fdc22e9bf794aa5a60c0fc..132d87cc61f836cf5518e28f24374aa17173bd82 100644
+index ae0f2bd13adf1d8a56e4a2a26aa5d8cc75e7aaae..37ca0efe6ad83b0e8c7578514d3d2d3fb58b91ec 100644
 --- a/src/main/java/net/minecraft/server/level/ServerLevel.java
 +++ b/src/main/java/net/minecraft/server/level/ServerLevel.java
 @@ -1303,9 +1303,13 @@ public class ServerLevel extends Level implements WorldGenLevel {
@@ -28,7 +28,7 @@ index c2800bbcf4892ca4e8fdc22e9bf794aa5a60c0fc..132d87cc61f836cf5518e28f24374aa1
          }
          // Spigot End
 diff --git a/src/main/java/net/minecraft/server/level/ServerPlayer.java b/src/main/java/net/minecraft/server/level/ServerPlayer.java
-index ea724b1781ea256c991fe47aa044183e20ae4d82..5270a8b1ee2cc426b8e0b5d34db4d81843fb4230 100644
+index 6c0c1f7f4f3407164ee39abf4c87ffcc057994fd..a3274d3506b90422e4acdf6446e351b2da65b29c 100644
 --- a/src/main/java/net/minecraft/server/level/ServerPlayer.java
 +++ b/src/main/java/net/minecraft/server/level/ServerPlayer.java
 @@ -1577,6 +1577,18 @@ public class ServerPlayer extends Player {

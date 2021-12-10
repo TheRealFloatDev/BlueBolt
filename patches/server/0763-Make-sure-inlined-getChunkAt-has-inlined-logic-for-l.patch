@@ -13,7 +13,7 @@ Paper recently reverted this optimisation, so it's been reintroduced
 here.
 
 diff --git a/src/main/java/net/minecraft/world/level/Level.java b/src/main/java/net/minecraft/world/level/Level.java
-index 93e607aae3e64b6a04fd56b25748283535ce5aac..79a231c6a2387e8b6bf1b32d02f0d3e0e1393756 100644
+index 86bcedec97f1bc95621380da6ad074bdcc4bfeab..a8e0d2609978652cf07e865c1af555d47bdaaea6 100644
 --- a/src/main/java/net/minecraft/world/level/Level.java
 +++ b/src/main/java/net/minecraft/world/level/Level.java
 @@ -397,6 +397,15 @@ public abstract class Level implements LevelAccessor, AutoCloseable {

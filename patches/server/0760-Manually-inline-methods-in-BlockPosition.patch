@@ -45,7 +45,7 @@ index 0dcf75c5c792650d7a5b9354222df16bcd1cfbd2..14610e6144ec144ebbec6fb0945c67bb
          }
          // Paper end
 diff --git a/src/main/java/net/minecraft/core/Vec3i.java b/src/main/java/net/minecraft/core/Vec3i.java
-index 6de2ea6641433206027015695a0d10c80fe0e2f5..b9d30deecb63efd4cd8c840b710edba5b956bd93 100644
+index e7ee1fa6fe070cd307fdeb2c77c927506014da72..1c3583e97b13b6978535fae401778fa45808a32e 100644
 --- a/src/main/java/net/minecraft/core/Vec3i.java
 +++ b/src/main/java/net/minecraft/core/Vec3i.java
 @@ -19,9 +19,9 @@ public class Vec3i implements Comparable<Vec3i> {

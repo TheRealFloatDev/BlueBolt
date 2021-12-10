@@ -272,7 +272,7 @@ index f436ab35798c9b6e6cb2eb60d2c02cbf9b742e69..4d7575087947f3b199dd895cd9aa02a7
          List<org.bukkit.World> worlds;
          if (args.length < 2 || args[1].equals("*")) {
 diff --git a/src/main/java/net/minecraft/world/level/NaturalSpawner.java b/src/main/java/net/minecraft/world/level/NaturalSpawner.java
-index 63ba93538d990fdd4c9e8c491bb715adc8d57986..928025438af179711c42381fc3eaeac74cd20c59 100644
+index c88bd5bc044b5f9722cb5826936e31811a8312c7..9b13244571807907fc0e14463d746724b0713c19 100644
 --- a/src/main/java/net/minecraft/world/level/NaturalSpawner.java
 +++ b/src/main/java/net/minecraft/world/level/NaturalSpawner.java
 @@ -148,32 +148,16 @@ public final class NaturalSpawner {

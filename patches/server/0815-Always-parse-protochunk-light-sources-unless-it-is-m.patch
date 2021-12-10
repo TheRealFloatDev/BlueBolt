@@ -8,7 +8,7 @@ Chunks not marked as lit will always go through the light engine,
 so they should always have their block sources parsed.
 
 diff --git a/src/main/java/net/minecraft/world/level/chunk/storage/ChunkSerializer.java b/src/main/java/net/minecraft/world/level/chunk/storage/ChunkSerializer.java
-index e54376b463b017d5e371f8d3204a37993b0e78e7..9b7bc1c9091d20671d281fa304722ac45fbf6e2e 100644
+index 2ade441dc4456d1670a81a3f58d4aa54d2888c19..300c95a3839954b9e631aa4d76c131a5c2d96394 100644
 --- a/src/main/java/net/minecraft/world/level/chunk/storage/ChunkSerializer.java
 +++ b/src/main/java/net/minecraft/world/level/chunk/storage/ChunkSerializer.java
 @@ -304,16 +304,33 @@ public class ChunkSerializer {

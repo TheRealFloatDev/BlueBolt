@@ -5,7 +5,7 @@ Subject: [PATCH] Fix merchant inventory not closing on entity removal
 
 
 diff --git a/src/main/java/net/minecraft/server/level/ServerLevel.java b/src/main/java/net/minecraft/server/level/ServerLevel.java
-index 051c32968d5b134f6f83dd9ac7db7e608ec1a4f2..e371ffb1f88e08883a1a2460260ff368c0cfe853 100644
+index 10563d4d02d825f5334b0c2c3e0fe032ccdacb73..a770b5abc7fc66b6de9f17dde192447686e70f4a 100644
 --- a/src/main/java/net/minecraft/server/level/ServerLevel.java
 +++ b/src/main/java/net/minecraft/server/level/ServerLevel.java
 @@ -2440,6 +2440,11 @@ public class ServerLevel extends Level implements WorldGenLevel {

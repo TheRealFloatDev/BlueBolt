@@ -19,7 +19,7 @@ index eada966d7f108a6081be7a848f5c1dfcb1eed676..a977f7483f37df473096b2234dc1308b
      public static final Timing midTickChunkTasks = Timings.ofSafe("Mid Tick Chunk Tasks");
  
 diff --git a/src/main/java/net/minecraft/server/level/ServerChunkCache.java b/src/main/java/net/minecraft/server/level/ServerChunkCache.java
-index 280ca8758cbaf710c2bf357e41dd2af6e14b49bc..3e3819222796dc6910e8605783e39d8be490de80 100644
+index df415f79dfd2ae9a709747b112022b38437daac4..69de466c627f91cb4ee67c1015ead2502f3f7500 100644
 --- a/src/main/java/net/minecraft/server/level/ServerChunkCache.java
 +++ b/src/main/java/net/minecraft/server/level/ServerChunkCache.java
 @@ -834,6 +834,7 @@ public class ServerChunkCache extends ChunkSource {
