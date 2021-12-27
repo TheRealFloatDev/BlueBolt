@@ -1,8 +1,8 @@
 plugins {
     java
     `maven-publish`
-    id("com.github.johnrengelman.shadow") version "7.1.0" apply false
-    id("io.papermc.paperweight.core") version "1.3.1"
+    id("com.github.johnrengelman.shadow") version "7.1.1" apply false
+    id("io.papermc.paperweight.core") version "1.3.3"
 }
 
 allprojects {
@@ -46,7 +46,7 @@ repositories {
 }
 
 dependencies {
-    paramMappings("net.fabricmc:yarn:1.18+build.1:mergedv2")
+    paramMappings("net.fabricmc:yarn:1.18.1+build.1:mergedv2")
     remapper("net.fabricmc:tiny-remapper:0.7.0:fat")
     decompiler("net.minecraftforge:forgeflower:1.5.498.22")
     paperclip("io.papermc:paperclip:3.0.2")

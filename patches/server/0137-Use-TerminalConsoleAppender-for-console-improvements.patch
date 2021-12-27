@@ -19,7 +19,7 @@ Other changes:
     configuration
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index bba267ecca0121df22fdfa60961017863b5e3415..b9ed067f776a47a977e90bb89cdd1768fd54eb2c 100644
+index 4db0cc3f8505747e77d314320545eb71904b4eac..8b424fb5e3c7e9169894438f680be1d43829d060 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -12,7 +12,17 @@ repositories {
@@ -244,10 +244,10 @@ index e47642c3164f7f7a358d2c7a9722643acf3e0089..dc891a463ec24b0b1b4c6c00b2c199e7
  
          this.bans = new UserBanList(PlayerList.USERBANLIST_FILE);
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-index 93e3d587f7d1d621e8aedb8e53f38a8df21b5587..8bad6fa590cfe47e1216a160531f4cd101c9450f 100644
+index 9bd1dac354a14735c3547215f85f1124c933f311..0fd04a4371525d6655c5a6f24c097c55914cd225 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
-@@ -48,7 +48,6 @@ import java.util.logging.Level;
+@@ -49,7 +49,6 @@ import java.util.logging.Level;
  import java.util.logging.Logger;
  import java.util.stream.Collectors;
  import javax.imageio.ImageIO;
@@ -255,7 +255,7 @@ index 93e3d587f7d1d621e8aedb8e53f38a8df21b5587..8bad6fa590cfe47e1216a160531f4cd1
  import net.minecraft.advancements.Advancement;
  import net.minecraft.commands.CommandSourceStack;
  import net.minecraft.commands.Commands;
-@@ -60,6 +59,7 @@ import net.minecraft.resources.RegistryReadOps;
+@@ -61,6 +60,7 @@ import net.minecraft.resources.RegistryReadOps;
  import net.minecraft.resources.ResourceKey;
  import net.minecraft.resources.ResourceLocation;
  import net.minecraft.server.ConsoleInput;
@@ -263,7 +263,7 @@ index 93e3d587f7d1d621e8aedb8e53f38a8df21b5587..8bad6fa590cfe47e1216a160531f4cd1
  import net.minecraft.server.MinecraftServer;
  import net.minecraft.server.bossevents.CustomBossEvent;
  import net.minecraft.server.commands.ReloadCommand;
-@@ -1287,9 +1287,13 @@ public final class CraftServer implements Server {
+@@ -1308,9 +1308,13 @@ public final class CraftServer implements Server {
          return this.logger;
      }
  
@@ -278,7 +278,7 @@ index 93e3d587f7d1d621e8aedb8e53f38a8df21b5587..8bad6fa590cfe47e1216a160531f4cd1
      @Override
      public PluginCommand getPluginCommand(String name) {
 diff --git a/src/main/java/org/bukkit/craftbukkit/Main.java b/src/main/java/org/bukkit/craftbukkit/Main.java
-index ed842f74fbd2de066cfbf8522c638ff2942e8197..8ab84e5591bbf2895f75b428f024760faa74d06d 100644
+index 60ccdf33a014f3488353045e30526bc3f16e93c5..a19d5abb8188e2fd2382b9b42d65fa7a8c3d1799 100644
 --- a/src/main/java/org/bukkit/craftbukkit/Main.java
 +++ b/src/main/java/org/bukkit/craftbukkit/Main.java
 @@ -12,7 +12,7 @@ import java.util.logging.Level;
@@ -290,7 +290,7 @@ index ed842f74fbd2de066cfbf8522c638ff2942e8197..8ab84e5591bbf2895f75b428f024760f
  
  public class Main {
      public static boolean useJline = true;
-@@ -197,6 +197,8 @@ public class Main {
+@@ -195,6 +195,8 @@ public class Main {
              }
  
              try {
@@ -299,7 +299,7 @@ index ed842f74fbd2de066cfbf8522c638ff2942e8197..8ab84e5591bbf2895f75b428f024760f
                  // This trick bypasses Maven Shade's clever rewriting of our getProperty call when using String literals
                  String jline_UnsupportedTerminal = new String(new char[]{'j', 'l', 'i', 'n', 'e', '.', 'U', 'n', 's', 'u', 'p', 'p', 'o', 'r', 't', 'e', 'd', 'T', 'e', 'r', 'm', 'i', 'n', 'a', 'l'});
                  String jline_terminal = new String(new char[]{'j', 'l', 'i', 'n', 'e', '.', 't', 'e', 'r', 'm', 'i', 'n', 'a', 'l'});
-@@ -214,9 +216,18 @@ public class Main {
+@@ -212,9 +214,18 @@ public class Main {
                      // This ensures the terminal literal will always match the jline implementation
                      System.setProperty(jline.TerminalFactory.JLINE_TERMINAL, jline.UnsupportedTerminal.class.getName());
                  }
@@ -318,7 +318,7 @@ index ed842f74fbd2de066cfbf8522c638ff2942e8197..8ab84e5591bbf2895f75b428f024760f
                  }
  
                  if (Main.class.getPackage().getImplementationVendor() != null && System.getProperty("IReallyKnowWhatIAmDoingISwear") == null) {
-@@ -244,7 +255,7 @@ public class Main {
+@@ -242,7 +253,7 @@ public class Main {
                      System.out.println("Unable to read system info");
                  }
                  // Paper end
