@@ -18,10 +18,10 @@ index 687904d3e1b3ee7b514c707d9b2eeccabbf56603..f7cbe6819b8c4f7eaca2389de8eaceb5
  
                  --this.count;
 diff --git a/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java b/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java
-index 918ea9531e5cb37cc60ad00f78a1b4d31037704f..db16f9d4b65e64ead6728056e2528ea184c672db 100644
+index b94d6c79adc0858a588778b5ebf9f5e7f97f9050..20e5da655a76ce2024cbbfa00ce4dc924c6cedd0 100644
 --- a/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java
 +++ b/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java
-@@ -1080,6 +1080,17 @@ public class CraftEventFactory {
+@@ -1111,6 +1111,17 @@ public class CraftEventFactory {
          return event;
      }
  

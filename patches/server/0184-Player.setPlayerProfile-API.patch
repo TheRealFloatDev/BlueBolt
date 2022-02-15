@@ -26,10 +26,10 @@ index 00ef714294b6cce5fec7613eed4ba228a48e3e11..67b300574655854249c1f7440f56a6e8
                              uniqueId = gameProfile.getId();
                              // Paper end
 diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
-index f696e31ec286263c4d06d6897b3aef0fa50f8f34..51839994999b22251bd9e813f1e05ef8d7e97c0d 100644
+index 6eaf970663bf5de9ea30db879e135c5e06238b41..e1d81be0a7ad66fc77c89563fd4e814ce80e24a7 100644
 --- a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
 +++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
-@@ -71,6 +71,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
+@@ -72,6 +72,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
  import net.minecraft.world.inventory.AbstractContainerMenu;
  import net.minecraft.world.level.GameType;
  import net.minecraft.world.level.block.Blocks;
@@ -37,7 +37,19 @@ index f696e31ec286263c4d06d6897b3aef0fa50f8f34..51839994999b22251bd9e813f1e05ef8
  import net.minecraft.world.level.block.entity.SignBlockEntity;
  import net.minecraft.world.level.saveddata.maps.MapDecoration;
  import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
-@@ -1358,8 +1359,13 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+@@ -194,11 +195,6 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+         return server.getPlayer(getUniqueId()) != null;
+     }
+ 
+-    @Override
+-    public PlayerProfile getPlayerProfile() {
+-        return new CraftPlayerProfile(this.getProfile());
+-    }
+-
+     @Override
+     public InetSocketAddress getAddress() {
+         if (this.getHandle().connection == null) return null;
+@@ -1389,8 +1385,15 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
          this.hiddenEntities.put(entity.getUniqueId(), hidingPlugins);
  
          // Remove this entity from the hidden player's EntityTrackerEntry
@@ -45,6 +57,8 @@ index f696e31ec286263c4d06d6897b3aef0fa50f8f34..51839994999b22251bd9e813f1e05ef8
 +        // Paper start
          Entity other = ((CraftEntity) entity).getHandle();
 +        unregisterEntity(other);
++
++        server.getPluginManager().callEvent(new PlayerHideEntityEvent(this, entity));
 +    }
 +    private void unregisterEntity(Entity other) {
 +        // Paper end
@@ -52,7 +66,16 @@ index f696e31ec286263c4d06d6897b3aef0fa50f8f34..51839994999b22251bd9e813f1e05ef8
          ChunkMap.TrackedEntity entry = tracker.entityMap.get(other.getId());
          if (entry != null) {
              entry.removePlayer(this.getHandle());
-@@ -1408,8 +1414,13 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+@@ -1403,8 +1406,6 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+                 this.getHandle().connection.send(new ClientboundPlayerInfoPacket(ClientboundPlayerInfoPacket.Action.REMOVE_PLAYER, otherPlayer));
+             }
+         }
+-
+-        server.getPluginManager().callEvent(new PlayerHideEntityEvent(this, entity));
+     }
+ 
+     @Override
+@@ -1441,8 +1442,15 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
          }
          this.hiddenEntities.remove(entity.getUniqueId());
  
@@ -60,6 +83,8 @@ index f696e31ec286263c4d06d6897b3aef0fa50f8f34..51839994999b22251bd9e813f1e05ef8
 +        // Paper start
          Entity other = ((CraftEntity) entity).getHandle();
 +        registerEntity(other);
++
++        server.getPluginManager().callEvent(new PlayerShowEntityEvent(this, entity));
 +    }
 +    private void registerEntity(Entity other) {
 +        ChunkMap tracker = ((ServerLevel) this.getHandle().level).getChunkSource().chunkMap;
@@ -67,10 +92,11 @@ index f696e31ec286263c4d06d6897b3aef0fa50f8f34..51839994999b22251bd9e813f1e05ef8
  
          if (other instanceof ServerPlayer) {
              ServerPlayer otherPlayer = (ServerPlayer) other;
-@@ -1421,6 +1432,50 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+@@ -1453,9 +1461,51 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+         if (entry != null && !entry.seenBy.contains(this.getHandle().connection)) {
              entry.updatePlayer(this.getHandle());
          }
-     }
++    }
 +    // Paper start
 +    private void reregisterPlayer(ServerPlayer player) {
 +        if (!hiddenEntities.containsKey(player.getUUID())) {
@@ -93,7 +119,8 @@ index f696e31ec286263c4d06d6897b3aef0fa50f8f34..51839994999b22251bd9e813f1e05ef8
 +    public com.destroystokyo.paper.profile.PlayerProfile getPlayerProfile() {
 +        return new com.destroystokyo.paper.profile.CraftPlayerProfile(this).clone();
 +    }
-+
+ 
+-        server.getPluginManager().callEvent(new PlayerShowEntityEvent(this, entity));
 +    private void refreshPlayer() {
 +        ServerPlayer handle = getHandle();
 +
@@ -113,7 +140,7 @@ index f696e31ec286263c4d06d6897b3aef0fa50f8f34..51839994999b22251bd9e813f1e05ef8
 +            this.setOp(false);
 +            this.setOp(true);
 +        }
-+    }
+     }
 +    // Paper end
  
      public void onEntityRemove(Entity entity) {

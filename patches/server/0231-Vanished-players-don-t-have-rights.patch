@@ -38,7 +38,7 @@ index c3fb7d41688855010c643b91c8d9496486dae089..8175bb6331727440da2232998bdad068
  
          BlockCanBuildEvent event = new BlockCanBuildEvent(CraftBlock.at(context.getLevel(), context.getClickedPos()), player, CraftBlockData.fromData(state), defaultReturn);
 diff --git a/src/main/java/net/minecraft/world/level/Level.java b/src/main/java/net/minecraft/world/level/Level.java
-index aba12f5a941fb07a2f4dd54af8f0a4310488ac78..aa8bbf6435c19013e3ccaa963118d71200b6efea 100644
+index d61e598478d297857f5e76d7c42a9e5c157514d5..fe666bb392ca16a9a6210dcb08bd0ddae22ead85 100644
 --- a/src/main/java/net/minecraft/world/level/Level.java
 +++ b/src/main/java/net/minecraft/world/level/Level.java
 @@ -72,6 +72,10 @@ import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
@@ -52,7 +52,7 @@ index aba12f5a941fb07a2f4dd54af8f0a4310488ac78..aa8bbf6435c19013e3ccaa963118d712
  import net.minecraft.world.scores.Scoreboard;
  import org.apache.logging.log4j.LogManager;
  import org.apache.logging.log4j.Logger;
-@@ -252,6 +256,45 @@ public abstract class Level implements LevelAccessor, AutoCloseable {
+@@ -251,6 +255,45 @@ public abstract class Level implements LevelAccessor, AutoCloseable {
          this.tileLimiter = new org.spigotmc.TickLimiter(spigotConfig.tileMaxTickTime);
      }
  
@@ -99,10 +99,10 @@ index aba12f5a941fb07a2f4dd54af8f0a4310488ac78..aa8bbf6435c19013e3ccaa963118d712
      public boolean isClientSide() {
          return this.isClientSide;
 diff --git a/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java b/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java
-index 8e0b6910c97789b4d03ae62723dceb962487fc5a..4faf98079a6a6af662e11050a0088578ba65a5eb 100644
+index 7964fd169c393c4d3e595d6722f8f29658a27490..658c656c32ebab5b84837473930d4f0680fc45ba 100644
 --- a/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java
 +++ b/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java
-@@ -1229,6 +1229,14 @@ public class CraftEventFactory {
+@@ -1260,6 +1260,14 @@ public class CraftEventFactory {
          Projectile projectile = (Projectile) entity.getBukkitEntity();
          org.bukkit.entity.Entity collided = position.getEntity().getBukkitEntity();
          com.destroystokyo.paper.event.entity.ProjectileCollideEvent event = new com.destroystokyo.paper.event.entity.ProjectileCollideEvent(projectile, collided);

@@ -8,10 +8,10 @@ Adds lots of information about why this orb exists.
 Replaces isFromBottle() with logic that persists entity reloads too.
 
 diff --git a/src/main/java/net/minecraft/server/level/ServerPlayerGameMode.java b/src/main/java/net/minecraft/server/level/ServerPlayerGameMode.java
-index 15220779927ff722960401643e99971833fc5704..2869d9bb0d374c26f9569eef3ecf0480cbaa85a6 100644
+index 252613e3c4c496bd4f6fd061e36fac06c32323c9..12c9efc409e5306fb24b8338d4c60286cff1435c 100644
 --- a/src/main/java/net/minecraft/server/level/ServerPlayerGameMode.java
 +++ b/src/main/java/net/minecraft/server/level/ServerPlayerGameMode.java
-@@ -414,7 +414,7 @@ public class ServerPlayerGameMode {
+@@ -416,7 +416,7 @@ public class ServerPlayerGameMode {
  
                  // Drop event experience
                  if (flag && event != null) {
@@ -129,10 +129,10 @@ index f7cbe6819b8c4f7eaca2389de8eaceb50bce4b15..90692df7e02346d4ba785d2eaf724d06
  
      @Override
 diff --git a/src/main/java/net/minecraft/world/entity/LivingEntity.java b/src/main/java/net/minecraft/world/entity/LivingEntity.java
-index 88066799a0090d22a2e22df17e2967774089f8b7..a11ee8a247affeb97de4c3152ea1449e8bc5b223 100644
+index fcf9206ef317aa22cd644ccb415c2156fd9f2af2..3490b9f1803ea852ad0682e22524b58c3b050510 100644
 --- a/src/main/java/net/minecraft/world/entity/LivingEntity.java
 +++ b/src/main/java/net/minecraft/world/entity/LivingEntity.java
-@@ -1699,7 +1699,8 @@ public abstract class LivingEntity extends Entity {
+@@ -1697,7 +1697,8 @@ public abstract class LivingEntity extends Entity {
      protected void dropExperience() {
          // CraftBukkit start - Update getExpReward() above if the removed if() changes!
          if (true) {
@@ -204,10 +204,10 @@ index 2584c02a5f6511ade260986a6aacef401c294549..19e594757fca90c64c4dc59233ff956e
  
              if (this.dragonFight != null) {
 diff --git a/src/main/java/net/minecraft/world/entity/npc/Villager.java b/src/main/java/net/minecraft/world/entity/npc/Villager.java
-index d9539f906348c13afc6f1b0032c3ce259f1c87c0..8d76fe0154f31445a889dfe4cca716cb658053f6 100644
+index 8785a112519de49e0d61eab5ab5325f9b2068d7e..bd073ac603be130e649d206992c01860ee72d531 100644
 --- a/src/main/java/net/minecraft/world/entity/npc/Villager.java
 +++ b/src/main/java/net/minecraft/world/entity/npc/Villager.java
-@@ -617,7 +617,7 @@ public class Villager extends AbstractVillager implements ReputationEventHandler
+@@ -622,7 +622,7 @@ public class Villager extends AbstractVillager implements ReputationEventHandler
          }
  
          if (offer.shouldRewardExp()) {
@@ -230,7 +230,7 @@ index 9001d627060b9691b703b4c0e157124b0cdee6bb..1101989e93758294c1adebbef0ab12a3
  
      }
 diff --git a/src/main/java/net/minecraft/world/entity/projectile/FishingHook.java b/src/main/java/net/minecraft/world/entity/projectile/FishingHook.java
-index 54bd343def9f1ebc987640c5d756db906593f320..abab779379e60d4b775f7b39cc46943e91c8749c 100644
+index c4126c0ced9cd8f7f23f91e2d141c37ba85da6af..c51dbef3bf17405be368d4caec72b713e06bafbc 100644
 --- a/src/main/java/net/minecraft/world/entity/projectile/FishingHook.java
 +++ b/src/main/java/net/minecraft/world/entity/projectile/FishingHook.java
 @@ -515,7 +515,7 @@ public class FishingHook extends Projectile {
@@ -288,10 +288,10 @@ index 5147f67c87ba3b8912a8ae24f876a9e996504600..b77eda6af8b430311e502465a2590d83
  
      }
 diff --git a/src/main/java/net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity.java b/src/main/java/net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity.java
-index ba9f209c2674107fd5751cb28c4f80fcbbc0aaa2..6c33b524d81ccd8ed060c3a9067cb1b669c7660d 100644
+index 16c272856bf9d8f8f2bf18f408cea2de94177f37..d39546b3f8d0c97fefdcc90f638eee60a5db409e 100644
 --- a/src/main/java/net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity.java
 +++ b/src/main/java/net/minecraft/world/level/block/entity/AbstractFurnaceBlockEntity.java
-@@ -623,7 +623,7 @@ public abstract class AbstractFurnaceBlockEntity extends BaseContainerBlockEntit
+@@ -627,7 +627,7 @@ public abstract class AbstractFurnaceBlockEntity extends BaseContainerBlockEntit
          j = event.getExpToDrop();
          // CraftBukkit end
  
@@ -301,10 +301,10 @@ index ba9f209c2674107fd5751cb28c4f80fcbbc0aaa2..6c33b524d81ccd8ed060c3a9067cb1b6
  
      @Override
 diff --git a/src/main/java/org/bukkit/craftbukkit/CraftRegionAccessor.java b/src/main/java/org/bukkit/craftbukkit/CraftRegionAccessor.java
-index 5af5c9738021880e8f2375fb0e97e704f5099a13..83cc44fe7a76a14b4ccd71c814181629514ce1dd 100644
+index caccb8d7b30e616a4fb367e2e1c42845dd9a1880..ef3874fccb5d8b99c2b6753e7c60b83f5e3f316b 100644
 --- a/src/main/java/org/bukkit/craftbukkit/CraftRegionAccessor.java
 +++ b/src/main/java/org/bukkit/craftbukkit/CraftRegionAccessor.java
-@@ -875,7 +875,7 @@ public abstract class CraftRegionAccessor implements RegionAccessor {
+@@ -883,7 +883,7 @@ public abstract class CraftRegionAccessor implements RegionAccessor {
          } else if (TNTPrimed.class.isAssignableFrom(clazz)) {
              entity = new PrimedTnt(world, x, y, z, null);
          } else if (ExperienceOrb.class.isAssignableFrom(clazz)) {
