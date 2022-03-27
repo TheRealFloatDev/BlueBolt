@@ -5,10 +5,10 @@ Subject: [PATCH] Ensure inv drag is in bounds
 
 
 diff --git a/src/main/java/net/minecraft/world/inventory/AbstractContainerMenu.java b/src/main/java/net/minecraft/world/inventory/AbstractContainerMenu.java
-index ccb6ff0cf31e619ce555d404a6454750f0958f12..36834f30ccefd229df4da2dbc7b22edcb83429c3 100644
+index 3c00795a4196de1429e7086b0f9cbf9671726b07..52f890fb91041757e6b8cba8831c890cbe9e111d 100644
 --- a/src/main/java/net/minecraft/world/inventory/AbstractContainerMenu.java
 +++ b/src/main/java/net/minecraft/world/inventory/AbstractContainerMenu.java
-@@ -406,7 +406,7 @@ public abstract class AbstractContainerMenu {
+@@ -418,7 +418,7 @@ public abstract class AbstractContainerMenu {
                      this.resetQuickCraft();
                  }
              } else if (this.quickcraftStatus == 1) {

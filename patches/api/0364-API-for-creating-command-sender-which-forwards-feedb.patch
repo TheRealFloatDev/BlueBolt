@@ -30,7 +30,7 @@ index 416d402b7e885ccc9b187a8e8111da2378197b45..795f8c0aa3929f6de4b4ea4b139bef8b
       * Gets the folder that contains all of the various {@link World}s.
       *
 diff --git a/src/main/java/org/bukkit/Server.java b/src/main/java/org/bukkit/Server.java
-index 32f84a04add01a244e4abba4c7e1c1183aa62db1..a62c27777672eff1c488517b37876e3a44a2d57d 100644
+index d90026c9331321ca749f7090b76c21b4608b2ee8..79120b42a3993beda1e3474fa4b722402e9d849f 100644
 --- a/src/main/java/org/bukkit/Server.java
 +++ b/src/main/java/org/bukkit/Server.java
 @@ -1151,6 +1151,18 @@ public interface Server extends PluginMessageRecipient, net.kyori.adventure.audi

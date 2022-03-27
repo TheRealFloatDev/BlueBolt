@@ -32,7 +32,7 @@ index a9fd90d5282bd013e031b9d7481e3f777d6892c6..a6f8ca71ba5d107cfbd24b8e8a225195
  
      private int getSurfaceY() {
 diff --git a/src/main/java/net/minecraft/world/entity/ai/navigation/PathNavigation.java b/src/main/java/net/minecraft/world/entity/ai/navigation/PathNavigation.java
-index 6b47e7abe63c196ab17c5816fdb4f79a89225178..4335bd9d6413d56326be573f7c07c8cd0503d352 100644
+index 0ed51ff1607277801ddf307984bb3b776ed74816..66a2813b0b4fc321d24dde4d51dbf2dc81e6149d 100644
 --- a/src/main/java/net/minecraft/world/entity/ai/navigation/PathNavigation.java
 +++ b/src/main/java/net/minecraft/world/entity/ai/navigation/PathNavigation.java
 @@ -10,6 +10,7 @@ import net.minecraft.core.BlockPos;

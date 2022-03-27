@@ -37,7 +37,7 @@ index 75acd6f8f3d774bb79e8e513125e801c5569a244..b93b1b0428d11589605c8edf5c053369
 +    // Paper end
  }
 diff --git a/src/main/java/org/bukkit/scoreboard/Scoreboard.java b/src/main/java/org/bukkit/scoreboard/Scoreboard.java
-index f7754ab421c7b452a53c28d1e2fafdccfbba24bf..9a395b138be3f6fa9a52639f0ac4070c23f7d77c 100644
+index 1ada91d790abedbc9b3aeb6e96467a0d78560f15..fc3456bb79f2fe1504359455b937c162780110c2 100644
 --- a/src/main/java/org/bukkit/scoreboard/Scoreboard.java
 +++ b/src/main/java/org/bukkit/scoreboard/Scoreboard.java
 @@ -163,9 +163,8 @@ public interface Scoreboard {

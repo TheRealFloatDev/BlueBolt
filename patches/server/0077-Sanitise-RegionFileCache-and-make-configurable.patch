@@ -11,7 +11,7 @@ The implementation uses a LinkedHashMap as an LRU cache (modified from HashMap).
 The maximum size of the RegionFileCache is also made configurable.
 
 diff --git a/src/main/java/com/destroystokyo/paper/PaperConfig.java b/src/main/java/com/destroystokyo/paper/PaperConfig.java
-index 817d4572c9991992b720b3ba163188ac0e5b59b7..01da2246c70237676597b3e70e3e169ab1132071 100644
+index 364f9196fb89a6e1bb9cd892971b486205b0c631..30abe81164347134c7fa1f16e9e1f2537377a079 100644
 --- a/src/main/java/com/destroystokyo/paper/PaperConfig.java
 +++ b/src/main/java/com/destroystokyo/paper/PaperConfig.java
 @@ -239,4 +239,9 @@ public class PaperConfig {
